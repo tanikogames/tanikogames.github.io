@@ -236,7 +236,7 @@ function setupTab(newTabHash) {
 			'background': 'rgba(110,110,70,1)'
 		});
 		if (currentBackground != 1) {
-			changeBg("resources/images/backgrounds/swordtile.jpg");
+			changeBg("Resources/Images/Backgrounds/swordtile.jpg");
 			currentBackground = 1;
 		}
 		$("#humanTabA").css({
@@ -277,7 +277,7 @@ function setupTab(newTabHash) {
 			'background': 'rgba(15,45,15,1)'
 		});
 		if (currentBackground != 2) {
-			changeBg("resources/images/backgrounds/axetile.jpg");
+			changeBg("Resources/Images/Backgrounds/axetile.jpg");
 			currentBackground = 2;
 		}
 		$("#humanTabA").css({
@@ -318,7 +318,7 @@ function setupTab(newTabHash) {
 			'background': 'rgba(100,100,100,1)'
 		});
 		if (currentBackground != 3) {
-			changeBg("resources/images/backgrounds/bowtile.jpg");
+			changeBg("Resources/Images/Backgrounds/bowtile.jpg");
 			currentBackground = 3;
 		}
 		$("#humanTabA").css({
@@ -359,7 +359,7 @@ function setupTab(newTabHash) {
 			'background': 'rgba(40,40,80,1)'
 		});
 		if (currentBackground != 4) {
-			changeBg("resources/images/backgrounds/stafftile.jpg");
+			changeBg("Resources/Images/Backgrounds/stafftile.jpg");
 			currentBackground = 4;
 		}
 		$("#humanTabA").css({
@@ -400,7 +400,7 @@ function setupTab(newTabHash) {
 			'background': 'rgba(40,40,50,1)'
 		});
 		if (currentBackground != 0) {
-			changeBg("resources/images/backgrounds/multitile.jpg");
+			changeBg("Resources/Images/Backgrounds/multitile.jpg");
 			currentBackground = 0;
 		}
 		$("#humanTabA").css({

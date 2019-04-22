@@ -76,7 +76,7 @@ input[type="reset"]::-moz-focus-inner {
 body{
 
 	background-color: #222;
-	background-image: url("../resources/images/backgrounds/multitile.jpg");
+	background-image: url("../Resources/Images/Backgrounds/multitile.jpg");
 	background-repeat: repeat;
 	
 	/* disable selection by accident when double clicking in firefox */
@@ -1028,7 +1028,7 @@ div[class^="invExpansion"]{
 	bottom: 4px;
 	width: 18px;
     height: 18px;
-    background: url(../resources/images/arrowSprites18.png) -18px -18px;	
+    background: url(../Resources/Images/arrowSprites18.png) -18px -18px;	
 	background-color: #999;
 	border-color: #999;
 	border: 4px;
@@ -2152,7 +2152,7 @@ div[class^="wizardExpansion"]{
     display  : none;
 	
 	background-color: #222;
-	background-image: url("../resources/images/backgrounds/Combat-Background-1200.jpg");
+	background-image: url("../Resources/Images/backgrounds/Combat-Background-1200.jpg");
 	
 	top: 50%;
 	left: 50%;
