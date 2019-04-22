@@ -1,0 +1,82 @@
+/* Action Points Section
+.craftColumn2{
+	display: inline;
+}
+.craftColumn3{
+	display: none;
+}
+.craftColumn4{
+	display: none;
+}
+.craftColumn5{
+	display: none;
+}
+#craftRow1{
+	display: inline;
+}
+#craftRow2{
+	display: inline;
+}
+#craftRow3{
+	display: none;
+}
+#craftRow4{
+	display: none;
+}
+#craftRow5{
+	display: none;
+} */
+.invColumn2{
+	display: inline;
+}
+.invColumn3{
+	display: inline;
+}
+.invColumn4{
+	display: inline;
+}
+.invColumn5{
+	display: inline;
+}
+#invRow1{
+	display: inline;
+}
+#invRow2{
+	display: inline;
+}
+#invRow3{
+	display: inline;
+}
+#invRow4{
+	display: inline;
+}
+#invRow5{
+	display: inline;
+}
+#humanTabA{
+	display: inline;
+}
+#dwarfTabA{
+	display: inline;
+}
+#elfTabA{
+	display: inline;
+}
+#wizardTabA{
+	display: inline;
+}
+#humanCity{
+	display: none;
+}
+#dwarvesRep{
+	display: none;
+}
+#elvesRep{
+	display: none;
+}
+#wizardsRep{
+	display: none;
+}
+.no-close .ui-dialog-titlebar-close {
+	display: none;
+}

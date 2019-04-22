@@ -1,0 +1,2967 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- makes sure IE doesn't run in compatibility mode -->
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+	<!-- Favicon section -->
+	<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+	<link rel="manifest" href="favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<!-- load scripts for the game -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/ui.js"></script>
+	<script type="text/javascript" src="js/jquery.csv-0.71.min.js"></script>
+	<script type="text/javascript" src="js/processing.js"></script>
+	<script type="text/javascript" src="js/combat.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<!-- saved from url=(0014)about:internet -->
+	<!-- main stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/interface.css" />
+	<link rel="stylesheet" type="text/css" href="css/uivisibility.css" />
+	<!-- loading fonts from Google -->
+	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
+	<link href='https://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css' />
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
+	<title>RPG Vendor</title>
+</head>
+
+<body>
+	<div id="fullPage">
+
+		<!-- #region Modals -->
+		<div id="modalInfo" title="Welcome to RPG Vendor">You have nothing.  See that Work button? Hold it down to get going. You can also click a lot, if that's your style. <p style="font-size: 12px; margin-top: 10px;">(Hint: Holding will click 3 times per second)</p></div>
+		<div id="modalDialogWithButtons" title="Welcome weary traveler!">We've got everything you need.</div>
+		<!-- #endregion -->
+
+		<!-- #region  Combat Section-->
+		<!-- This section is the overlay that shows up when combat begins -->
+		<div id="combatWindowBack"></div>
+		<!-- This is the center combat window where the content sits -->
+		<div id="combatWindow">
+			<div class="row">
+				<div class="column column-2">
+					<div class="combatInformationContainer">
+						<div class="workCell" style="text-align: center;">
+							<button id="combatControlButton" class="actionButton" style="margin-top: 10px">Begin
+								Combat</button>
+						</div>
+						<div class="cityHistoryBoxTitle combatLogTitle">
+							Combat Log
+						</div>
+						<div class="cityHistoryBox combatLog">
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+							Drunken Bastard hits Tavernkeep for 1 dmg<br />
+							Tavernkeep hits Drunken Bastart for 1 dmg<br />
+							Drunken Bastard falls<br />
+							You use Minor HP Potion to heal Tavernkeep for 2hp<br />
+						</div>
+					</div>
+				</div>
+				<div class="column column-2">
+					<div class="combatActionsContainer" style="margin-top: 100px">
+						<div class="row">
+							<div class="column column-4">
+								<button class="specialButton" id="specialRepair" disabled="disabled"><img
+										src="resources/images/repairKit.png" style="width: 21px; height: auto;" /><span
+										class="countOfItem" id="itemCount5-1">0</span></button>
+							</div>
+							<div class="column column-8">
+								<button class="potionButton" id="potion1Button">
+									<img src="resources/images/potionRed.png" style="width: 21px; height: auto;" /><span
+										class="countOfItem" id="itemCount4-1">24</span>
+								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column column-4">
+								<button class="specialButton" id="specialHorse"><img src="resources/images/horse.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount5-2">6</span></button>
+							</div>
+							<div class="column column-8">
+								<button class="potionButton" id="potion2Button" disabled="disabled">
+									<img valign="middle" src="resources/images/potionYellow.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount4-2">6</span>00:12
+								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column column-4">
+								<button class="specialButton" id="specialForge"><img src="resources/images/forge.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount5-3">1</span></button>
+							</div>
+							<div class="column column-8">
+								<button class="potionButton" id="potion3Button">
+									<img src="resources/images/potionGreen.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount4-3">2</span>
+								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column column-4">
+								<button class="specialButton" id="specialRune"><img src="resources/images/rune.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount5-4">23</span></button>
+							</div>
+							<div class="column column-8">
+								<button class="potionButton" id="specialRepair" disabled="disabled">
+									<img valign="middle" src="resources/images/potionWhite.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount4-4">0</span>
+								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column column-4">
+								<button class="specialButton" id="specialOrb"><img src="resources/images/orb.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount5-5">5</span></button>
+							</div>
+							<div class="column column-8">
+								<button class="potionButton" id="specialRepair" disabled="disabled">
+									<img valign="middle" src="resources/images/potionBlue.png"
+										style="width: 21px; height: auto;" /><span class="countOfItem"
+										id="itemCount4-5">1</span>02:32
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column column-4">
+					<div class="combatLeftFighters">
+						<div class="combatTitle">
+							5 Tavernkeeps
+						</div>
+						<div id="leftTimer">ATTACK IN: 00:01.3</div>
+						<div class="fightersContainer">
+							<div class="leftCombatant">
+								<div class="leftFighterColumn1">
+									<div style="display: inline-block;">16AT<br />
+										19DE</div>
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/humanFacingRight.png" /> </div>
+								</div>
+								<br />
+								<div class="leftFighterColumn2">
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) -21px 0; display: inline-block;">
+									</div>
+									<div
+										style="margin-top: 6px;width: 35px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="leftCombatant">
+								<div class="leftFighterColumn1">
+									<div style="display: inline-block;">10AT<br />
+										12DE</div>
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/humanFacingRight.png" /> </div>
+								</div>
+								<br />
+								<div class="leftFighterColumn2">
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) 0 0; display: inline-block;">
+									</div>
+									<div
+										style="margin-top: 6px;width: 18px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="leftCombatant">
+								<div class="leftFighterColumn1">
+									<div style="display: inline-block;">5AT<br />
+										6DE</div>
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/humanFacingRight.png" /> </div>
+								</div>
+								<br />
+								<div class="leftFighterColumn2">
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) -42px 0; display: inline-block;">
+									</div>
+									<div
+										style="margin-top: 6px;width: 26px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="leftCombatant">
+								<div class="leftFighterColumn1">
+									<div style="display: inline-block;">10AT<br />
+										12DE</div>
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/humanFacingRight.png" /> </div>
+								</div>
+								<br />
+								<div class="leftFighterColumn2">
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) 0 0; display: inline-block;">
+									</div>
+									<div
+										style="margin-top: 6px;width: 52px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="leftCombatant">
+								<div class="leftFighterColumn1">
+									<div style="display: inline-block;">5AT<br />
+										6DE</div>
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/humanFacingRight.png" /> </div>
+								</div>
+								<br />
+								<div class="leftFighterColumn2">
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) -42px 0; display: inline-block;">
+									</div>
+									<div
+										style="margin-top: 6px;width: 52px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column column-4">
+					<div class="combatRightFighters">
+						<div class="combatTitle">
+							5 Drunken Bastards
+						</div>
+						<div id="rightTimer">ATTACK IN: 00:04.4</div>
+						<div class="fightersContainer">
+							<div class="rightCombatant">
+								<div class="rightFighterColumn1">
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/human2FacingLeft.png" /> </div>
+									<div style="display: inline-block;">10AT<br />12DE</div>
+								</div>
+								<br />
+								<div class="rightFighterColumn2">
+									<div
+										style="margin-top: 6px;width: 52px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="rightCombatant">
+								<div class="rightFighterColumn1">
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/human2FacingLeft.png" /> </div>
+									<div style="display: inline-block;">10AT<br />12DE</div>
+								</div>
+								<br />
+								<div class="rightFighterColumn2">
+									<div
+										style="margin-top: 6px;width: 52px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="rightCombatant">
+								<div class="rightFighterColumn1">
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/human2FacingLeft.png" /> </div>
+									<div style="display: inline-block;">10AT<br />12DE</div>
+								</div>
+								<br />
+								<div class="rightFighterColumn2">
+									<div
+										style="margin-top: 6px;width: 52px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="rightCombatant">
+								<div class="rightFighterColumn1">
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/human2FacingLeft.png" /> </div>
+									<div style="display: inline-block;">10AT<br />12DE</div>
+								</div>
+								<br />
+								<div class="rightFighterColumn2">
+									<div
+										style="margin-top: 6px;width: 52px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+							<div class="rightCombatant">
+								<div class="rightFighterColumn1">
+									<div style="display: inline-block; width: 50px; text-align: center;"><img
+											src="resources/images/human2FacingLeft.png" /> </div>
+									<div style="display: inline-block;">10AT<br />12DE</div>
+								</div>
+								<br />
+								<div class="rightFighterColumn2">
+									<div
+										style="margin-top: 6px;width: 52px; height: 15px; background: url(resources/images/hearts.png) 0 0; display: inline-block;">
+									</div>
+									<div
+										style="width: 21px; height: 21px; background: url(resources/images/repairKitSprite.png) 0 0; display: inline-block;">
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- #endregion -->
+
+		<!-- #region Static Containers -->
+		<!-- This section is the first top left container that has general information about the vendor -->
+		<div class="character-container">
+			<div class="character-title">
+				<div class="box-title">
+					RPG Vendor
+				</div>
+			</div>
+			<div class="boxed-text">
+				<div id="progressBarContainer">
+					<div id="levelContainter" title="">
+						Level: <span id="currentLevel"></span><span class="formulaForLeftBar"><span
+								id="currentLevelDescription"></span></span>
+					</div>
+					<div class="progressBarBorder"><span id="progressRightStats"></span>
+						<div class="progressBar" id="characterLevelProgressBar"></div>
+					</div>
+				</div>
+				<div class="moneyContainer">
+					<span id="copperCountTag" class="countTag" title="Coppper"><img
+							src="resources/images/copperCoin.png" class="coins" style="padding: 0px;" /> <span
+							id="copperCount"></span></span>
+					<span id="silverCountTag" class="countTag" title="Silver"><img src="resources/images/silverCoin.png"
+							class="coins" /> <span id="silverCount"></span></span>
+					<span id="goldCountTag" class="countTag" title="Gold"><img src="resources/images/goldCoin.png"
+							class="coins" /> <span id="goldCount"></span></span>
+					<span id="platCountTag" class="countTag" title="Plat"><img src="resources/images/platinumCoin.png"
+							class="coins" /> <span id="platCount"></span></span>
+				</div>
+				<div class="boxed-text">
+					<div id="customerCapacityCountTag"
+						title="This is the number of customers you have line at any one time.">Customer Capacity: <span
+							class="formulaForLeftBar"><span id="customerCapacityCount"></span></span></div>
+					<div id="customerFrequencyCountTag" title="This is the average rate customers visit.">New Customer
+						Every:
+						<span class="formulaForLeftBar"><span id="customerFrequencyCount"></span></span></div>
+					<div id="partWorkerCount" title="Each part time hand contributes 0.04ap per second.">Part Time Help:
+						<span class="formulaForLeftBar"><span id="totalPartTimeHelp"></span></span></div>
+					<div id="fullWorkerCount" title="Each full time hand contributes 0.1ap per second.">Full Time Help:
+						<span class="formulaForLeftBar"><span id="totalFullTimeHelp"></span></span></div>
+				</div>
+			</div>
+		</div>
+		<!-- Second container on the left side that holds Action Points and information related Action Points -->
+		<div class="actionPoints-container">
+			<div class="actionPoints-title">
+				<div class="box-title" title="Action Points">
+					AP <div id="apData"><span id="apCounter"></span>/<span id="apMax"></span></div>
+				</div>
+			</div>
+			<div class="boxed-text">
+				<div id="totalWorkRateTag" title="AP added per click">Per Click: <span class="formulaForLeftBar"><span
+							id="totalWorkRate"></span> ap</span></div>
+				<div id="totalWorkHoldRateTag" title="AP added per second when you hold the work button down">Per Sec
+					Held <span class="formulaForLeftBar"><span id="totalWorkHoldRate"></span> ap</span></div>
+				<div id="totalWorkerRateTag" title="AP created by your hired hands per second">PT Helpers: <span
+						class="formulaForLeftBar"><span id="ptWorkerRate"></span> ap/s</span></div>
+				<div id="totalWorkerRateTag" title="AP created by your hired hands per second">FT Helpers: <span
+						class="formulaForLeftBar"><span id="ftWorkerRate"></span> ap/s</span></div>
+				<div id="totalAutomationRateTag" title="Average Action Points gained per second"
+					style="margin-top: 8px;">Total: <span class="formulaForLeftBar"><span id="workPerSecond"></span>
+						ap/s</span></div>
+			</div>
+		</div>
+		<!-- Third container on the left side that hold cursory information about the reputation points accumolated so far -->
+		<div class="reputation-container">
+			<div class="reputation-title">
+				<div class="box-title">
+					Reputation
+				</div>
+			</div>
+			<div class="boxed-text">
+				<div id="humanRep">Humans: <span class="formulaForLeftBar"><span id="humanRepCounter"></span>
+						tales</span></div>
+				<div id="dwarvesRep">Dwarves: <span class="formulaForLeftBar"><span id="dwarfRepCounter">/span>
+							songs</span></div>
+				<div id="elvesRep">Elves: <span class="formulaForLeftBar"><span id="elfRepCounter"></span>
+						legends</span></div>
+				<div id="wizardsRep">Wizards: <span class="formulaForLeftBar"><span id="wizardRepCounter"></span>
+						lores</span></div>
+			</div>
+		</div>
+		<!-- Container on the right side that has the log history -->
+		<div class="log-container">
+			<div class="log-title">
+				<div class="box-title">
+					Ye Olde Ledger
+				</div>
+			</div>
+			<div class="boxed-text">
+				<div id="logHistoryBox"></div>
+			</div>
+		</div>
+		<!-- This is the middle tabs sections that hold all activity tabs such as Vendor, Inventory, and Cities -->
+		<div id="middleTabsContainer">
+			<div id="middleTabs">
+				<ul class='middleTabs'>
+					<li><a href='#workTab'>Vendor</a></li>
+					<li><a href='#craftingTab'>Crafting</a></li>
+					<li><a href='#inventoryTab'>Inventory</a></li>
+					<li><a href='#statusTab'>Status</a></li>
+					<li><a href='#humanTab' id='humanTabA'>StormGate</a></li>
+					<li><a href='#dwarfTab' id='dwarfTabA'>GrundtStone</a></li>
+					<li><a href='#elfTab' id='elfTabA'>Lethleriel</a></li>
+					<li><a href='#wizardTab' id='wizardTabA'>Ezlore</a></li>
+				</ul>
+			</div>
+			<!-- #endregion -->
+
+			<!-- #region Vendor Tab -->
+			<!-- The work tab section -->
+			<div id='workTab'>
+				<div class="workGrid">
+					<div class="row">
+						<div class="column column-4">
+							<div class="workCell">
+								<button id="workClickButton" class="actionButton">Work</button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,1)" id="1" name="upgrade1" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell"">
+							<button onclick=" upgrade(this.id,2)" id="2" name="upgrade2" class="upgradeButton"
+								disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,3)" id="3" name="upgrade3" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,4)" id="4" name="upgrade4" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,5)" id="5" name="upgrade5" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,6)" id="6" name="upgrade6" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,7)" id="7" name="upgrade7" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,8)" id="8" name="upgrade8" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,9)" id="9" name="upgrade9" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,10)" id="10" name="upgrade10" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+						<div class="column column-4">
+							<div class="workCell">
+								<button onclick="upgrade(this.id,11)" id="11" name="upgrade11" class="upgradeButton"
+									disabled></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- #endregion -->
+
+			<!-- #region Crafting Tab -->
+			<!-- The Crafting tab section -->
+			<div id='craftingTab'>
+				<div class="row craftingHeader">
+					<div class="column column-2">
+						<div class="inventoryColumnTitles">
+							<span id="rareTitle"></span>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn1">
+						<div class="inventoryColumnTitles">
+							<span id="itemsTitle">General</span>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn2">
+						<div class="inventoryColumnTitles">
+							<span id="humanTitle">Human</span>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn3">
+						<div class="inventoryColumnTitles">
+							<span id="dwarfTitle">Dwarf</span>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn4">
+						<div class="inventoryColumnTitles">
+							<span id="elfTitle">Elf</span>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn5">
+						<div class="inventoryColumnTitles">
+							<span id="wizardTitle">Wizard</span>
+						</div>
+					</div>
+				</div>
+				<div class="row craftingItems" id="craftRow1">
+					<div class="column column-2">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="craftTitle">Accessories</span>
+							</div>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn1">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton1-1">
+								<span class="craftItem" id="craftItem1-1">Torch<span class="craftItemLevel"
+										id="craftItemLevel1-1" title="Item Level">4</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn2">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton1-2">
+								<span class="craftItem" id="craftItem1-2">Shield<span class="craftItemLevel"
+										id="craftItemLevel1-2" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn3">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton1-3">
+								<span class="craftItem" id="craftItem1-3">Hammer<span class="craftItemLevel"
+										id="craftItemLevel1-3" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn4">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton1-4">
+								<span class="craftItem" id="craftItem1-4">Arrows<span class="craftItemLevel"
+										id="craftItemLevel1-4" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn5">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton1-5">
+								<span class="craftItem" id="craftItem1-5">Spellbook<span class="craftItemLevel"
+										id="craftItemLevel1-5" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row craftingItems" id="craftRow2">
+					<div class="column column-2">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="craftTitle">Armor</span>
+							</div>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn1">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton2-1">
+								<span class="craftItem" id="craftItem2-1">Shirt<span class="craftItemLevel"
+										id="craftItemLevel2-1" title="Item Level">4</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn2">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton2-2">
+								<span class="craftItem" id="craftItem2-2">Tunic<span class="craftItemLevel"
+										id="craftItemLevel2-2" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn3">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton2-3">
+								<span class="craftItem" id="craftItem2-3">Platemail<span class="craftItemLevel"
+										id="craftItemLevel2-3" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn4">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton2-4">
+								<span class="craftItem" id="craftItem2-4">Cloak<span class="craftItemLevel"
+										id="craftItemLevel2-4" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn5">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton2-5">
+								<span class="craftItem" id="craftItem2-5">Robe<span class="craftItemLevel"
+										id="craftItemLevel2-5" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row craftingItems" id="craftRow3">
+					<div class="column column-2">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="craftTitle">Weapons</span>
+							</div>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn1">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton3-1">
+								<span class="craftItem" id="craftItem3-1">Dagger<span class="craftItemLevel"
+										id="craftItemLevel3-1" title="Item Level">4</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn2">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton3-2">
+								<span class="craftItem" id="craftItem3-2">Sword<span class="craftItemLevel"
+										id="craftItemLevel3-2" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn3">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton3-3">
+								<span class="craftItem" id="craftItem3-3">Axe<span class="craftItemLevel"
+										id="craftItemLevel3-3" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn4">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton3-4">
+								<span class="craftItem" id="craftItem3-4">Bow<span class="craftItemLevel"
+										id="craftItemLevel3-4" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn5">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton3-5">
+								<span class="craftItem" id="craftItem3-5">Staff<span class="craftItemLevel"
+										id="craftItemLevel3-5" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row craftingItems" id="craftRow4">
+					<div class="column column-2">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="craftTitle">Potions</span>
+							</div>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn1">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton4-1">
+								<span class="craftItem" id="craftItem4-1">Health<span class="craftItemLevel"
+										id="craftItemLevel4-1" title="Item Level">4</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn2">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton4-2">
+								<span class="craftItem" id="craftItem4-2">Defense<span class="craftItemLevel"
+										id="craftItemLevel4-2" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn3">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton4-3">
+								<span class="craftItem" id="craftItem4-3">Attack<span class="craftItemLevel"
+										id="craftItemLevel4-3" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn4">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton4-4">
+								<span class="craftItem" id="craftItem4-4">Mithril<span class="craftItemLevel"
+										id="craftItemLevel4-4" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn5">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton4-5">
+								<span class="craftItem" id="craftItem4-5">Revive<span class="craftItemLevel"
+										id="craftItemLevel4-5" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row craftingItems" id="craftRow5">
+					<div class="column column-2">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="craftTitle" style="color: #c4c">Special</span>
+							</div>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn1">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton5-1">
+								<span class="craftItem" id="craftItem5-1">Repair Kit<span class="craftItemLevel"
+										id="craftItemLevel5-1" title="Item Level">4</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn2">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton5-2">
+								<span class="craftItem" id="craftItem5-2">Horse<span class="craftItemLevel"
+										id="craftItemLevel5-2" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn3">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton5-3">
+								<span class="craftItem" id="craftItem5-3">Forge<span class="craftItemLevel"
+										id="craftItemLevel5-3" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn4">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton5-4">
+								<span class="craftItem" id="craftItem5-4">Rune<span class="craftItemLevel"
+										id="craftItemLevel5-4" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="column column-2 craftColumn5">
+						<div class="craftingCell">
+							<button class="craftingButton" id="craftItemButton5-5">
+								<span class="craftItem" id="craftItem5-5">Orb<span class="craftItemLevel"
+										id="craftItemLevel5-5" title="Item Level">2</span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- Crafting section where you see the details for the selected item -->
+				<div class="row craftingItems">
+					<div class="column column-12">
+						<div class="craftDetailCell">
+							<div class="column column-4">
+								<div>
+									<div class="row craftDetailRow1">
+										<img src="resources/images/torch.png" id="craftItemPicture"
+											class="craftItemPicture">
+										<span id="craftDetailItemCount">28</span>
+										<span id="craftCurrentItemName">Torch of Lighting</span>
+									</div>
+									<div class="craftDetailItemPrice">
+										Sell Prices: <span id="craftLowPrice" style="color: #f99">350c</span><span
+											id="craftMiddlePrice" style="color: #fff"> 500c</span><span
+											id="craftHighPrice" style="color: #9f9"> 650c</span>
+									</div>
+									<div class="craftDonationReputation">
+										Donation: <span id="craftDonationReputation">150 human-rep</span>, <span
+											id="craftDonationExp">240xp</span>
+									</div>
+									<div class="craftCostToMake">
+										Cost to Make: <span id="craftCostToMake">230ap 15c</span>
+									</div>
+									<div class="makeButtons">
+										<button class="craftingButton">
+											<span class="craftItem" id="craftRareItem1Button">Make 1</span>
+										</button>
+										<button class="craftingButton">
+											<span class="craftItem" id="craftRareItem1Button">Make 5</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="column column-4 craftDetailUpgradeColumn">
+								<div class="researchingTitle">
+									Researching: Everlit Torch
+								</div>
+								<div class="progressBarBorder">
+									<span id="progressRightStats">3/16</span>
+									<div class="progressBar nextCraftedItemProgressBar">
+										19%
+									</div>
+								</div>
+								<div class="craftUpgradeButton">
+									<button class="upgradeButton crafting"
+										title="Upgrading will liquidate all current stock of this item at a selling price of 10c each. No experience will be gained.">
+										Upgrade to Everlit Torch
+										<div>
+											<span id="craftDetailTotalUpgradeSellPrice">+280c</span>
+										</div>
+									</button>
+								</div>
+							</div>
+							<div class="column column-4 discontinuedTitleCell">
+								<div class="discontinuedTitle">
+									Discontinued Items (sold/donated)
+								</div>
+								<div class="discontinuedItemsContainer">
+									<div class="discontinuedItems">
+										<span id="discontinuedItem1">Flickering Torch: 136/150</span>
+									</div>
+									<div class="discontinuedItems">
+										<span id="discontinuedItem2">Lively Torch: 453/892</span>
+									</div>
+									<div class="discontinuedItems">
+										<span id="discontinuedItem3">Workable Torch: 10/32</span>
+									</div>
+									<div class="discontinuedItems">
+										<span id="discontinuedItem4">Flimsy Torch: 388/123</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- #endregion -->
+
+			<!-- #region Inventory Tab -->
+			<!-- Inventory tab section -->
+			<div id='inventoryTab'>
+				<!-- Inventory Titles -->
+				<div class="row">
+					<div class="column column-2">
+						<div class="inventoryColumnTitles">
+							<span id="rareTitle"></span>
+						</div>
+					</div>
+					<div class="column column-2 invColumn1">
+						<div class="inventoryColumnTitles">
+							<span id="itemsTitle">General</span>
+						</div>
+					</div>
+					<div class="column column-2 invColumn2">
+						<div class="inventoryColumnTitles">
+							<span id="humanTitle">Human</span>
+						</div>
+					</div>
+					<div class="column column-2 invColumn3">
+						<div class="inventoryColumnTitles">
+							<span id="dwarfTitle">Dwarf</span>
+						</div>
+					</div>
+					<div class="column column-2 invColumn4">
+						<div class="inventoryColumnTitles">
+							<span id="elfTitle">Elf</span>
+						</div>
+					</div>
+					<div class="column column-2 invColumn5">
+						<div class="inventoryColumnTitles">
+							<span id="wizardTitle">Wizard</span>
+						</div>
+					</div>
+				</div>
+				<!-- Each section below is a row of inventory items -->
+				<div id="invRow1">
+					<div class="row row1">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="itemsTitle">Accessories</span>
+							</div>
+						</div>
+						<div class="column column-2 invColumn1">
+							<div id="item1-1">
+								<div class="inventoryCell">
+									<img src="resources/images/torch.png" id="itemsImage1-1" class="invImage"
+										title="A torch, sure, but also a beginning.  May your adventures burn brightly, unlike this torch, which is problably less than excellently crafted.">
+									<span class="countOfItem" id="itemCount1-1">12</span>
+									<span class="costOfItem" id="costOfItem1-1">15c</span>
+									<div class="invExpansion1">
+										<div class="itemsName" id="itemName1-1">Flimsy Torch</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton1-1"
+												title="Donate your item to someone who could use it"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton1-1"
+												title="Put item on sale" style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton1-1"
+												title="Charge a premium price" style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn2">
+							<div id="item1-2">
+								<div class="inventoryCell">
+									<img src="resources/images/shield.png" id="itemsImage1-2" class="invImage"
+										title="Can not be used as a lean to.">
+									<span class="countOfItem" id="itemCount1-2">9</span>
+									<span class="costOfItem" id="costOfItem1-2">999s</span>
+									<div class="invExpansion1">
+										<div class="itemsName" id="itemName1-1">Novice Shield</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton1-2"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton1-2"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton1-2"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn3">
+							<div id="item1-3">
+								<div class="inventoryCell">
+									<img src="resources/images/hammer.png" id="itemsImage1-3" class="invImage"
+										title="Captain Hammer, corporate tool.">
+									<span class="countOfItem" id="itemCount1-3">3</span>
+									<span class="costOfItem" id="costOfItem1-3">999g</span>
+									<div class="invExpansion1">
+										<div class="itemsName" id="itemName1-3">Well Worn Hammer</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton1-3"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton1-3"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton1-3"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn4">
+							<div id="item1-4">
+								<div class="inventoryCell">
+									<img src="resources/images/arrows.png" id="itemsImage1-4" class="invImage"
+										title="Arrows for Elves; what could be finer?">
+									<span class="countOfItem" id="itemCount1-4">3</span>
+									<span class="costOfItem" id="costOfItem1-4">999p</span>
+									<div class="invExpansion1">
+										<div class="itemsName" id="itemName1-4">Wooden Arrows</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton1-4"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton1-4"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton1-4"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn5">
+							<div id="item1-5">
+								<div class="inventoryCell">
+									<img src="resources/images/spellbook.png" id="itemsImage1-5" class="invImage"
+										title="A wizard with no spellbook is useless.">
+									<span class="countOfItem" id="itemCount1-5">6</span>
+									<span class="costOfItem" id="costOfItem1-5">999p</span>
+									<div class="invExpansion1">
+										<div class="itemsName" id="itemName1-5">First Book of Spells</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton1-5"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton1-5"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton1-5"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="invRow2">
+					<div class="row row2">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="itemsTitle">Armor</span>
+							</div>
+						</div>
+						<div class="column column-2 invColumn1">
+							<div id="item2-1">
+								<div class="inventoryCell">
+									<img src="resources/images/shirt.png" id="itemsImage2-1" class="invImage"
+										title="The threads are spaced further apart than ogres front teeth, but this shirt does the job.">
+									<span class="countOfItem" id="itemCount2-1">22</span>
+									<span class="costOfItem" id="costOfItem2-1">25c</span>
+									<div class="invExpansion2">
+										<div class="itemsName" id="itemName2-1">Threadbare shirt</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton2-1"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton2-1"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton2-1"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn2">
+							<div id="item2-2">
+								<div class="inventoryCell">
+									<img src="resources/images/tunic.png" id="itemsImage2-2" class="invImage"
+										title="A sturdy garment for any application.">
+									<span class="countOfItem" id="itemCount2-2">9</span>
+									<span class="costOfItem" id="costOfItem2-2">999s</span>
+									<div class="invExpansion2">
+										<div class="itemsName" id="itemName2-2">Tanned Leather Tunic</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton2-2"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton2-2"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton2-2"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn3">
+							<div id="item2-3">
+								<div class="inventoryCell">
+									<img src="resources/images/platemail.png" id="itemsImage2-3" class="invImage"
+										title="The glistening armor radiates the quality of dwarven craftsmanship, yet done by your hand.">
+									<span class="countOfItem" id="itemCount2-3">3</span>
+									<span class="costOfItem" id="costOfItem2-3">999g</span>
+									<div class="invExpansion2">
+										<div class="itemsName" id="itemName2-3">Polished Iron Platemail</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton2-3"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton2-3"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton2-3"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn4">
+							<div id="item2-4">
+								<div class="inventoryCell">
+									<img src="resources/images/cloak.png" id="itemsImage2-4" class="invImage"
+										title="Elvish cloaks, imbued with power, made from the finest of ingredients.">
+									<span class="countOfItem" id="itemCount2-4">3</span>
+									<span class="costOfItem" id="costOfItem2-4">999p</span>
+									<div class="invExpansion2">
+										<div class="itemsName" id="itemName2-4">Traveling Cloak</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton2-4"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton2-4"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton2-4"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn5">
+							<div id="item2-5">
+								<div class="inventoryCell">
+									<img src="resources/images/robe.png" id="itemsImage2-5" class="invImage"
+										title="A wizard's robe is more than a mere garment; it empowers the wizard to carry out his will.">
+									<span class="countOfItem" id="itemCount2-5">6</span>
+									<span class="costOfItem" id="costOfItem2-5">999p</span>
+									<div class="invExpansion2">
+										<div class="itemsName" id="itemName2-5">Prime Robe</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton2-5"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton2-5"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton2-5"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="invRow3">
+					<div class="row row3">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="itemsTitle">Weapons</span>
+							</div>
+						</div>
+						<div class="column column-2 invColumn1">
+							<div id="item3-1">
+								<div class="inventoryCell">
+									<img src="resources/images/dagger.png" id="itemsImage3-3" class="invImage"
+										title="This dagger is sturdy and useful for self-defense and as a general knife.">
+									<span class="countOfItem" id="itemCount3-1">32</span>
+									<span class="costOfItem" id="costOfItem3-1">35c</span>
+									<div class="invExpansion3">
+										<div class="itemsName" id="itemName3-1">Copper Dagger</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton3-1"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton3-1"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton3-1"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2  invColumn2">
+							<div id="item3-2">
+								<div class="inventoryCell">
+									<img src="resources/images/sword.png" id="itemsImage3-2" class="invImage"
+										title="Sturdy and sharp, this sword is light and will never dull, unless you use it a lot, then it gets dull.">
+									<span class="countOfItem" id="itemCount3-2">9</span>
+									<span class="costOfItem" id="costOfItem3-2">999s</span>
+									<div class="invExpansion3">
+										<div class="itemsName" id="itemName3-3">Copper Sword</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton3-2"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton3-2"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton3-2"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn3">
+							<div id="item3-3">
+								<div class="inventoryCell">
+									<img src="resources/images/axe.png" id="itemsImage3-3" class="invImage"
+										title="No enemy will survive a strike from this powerful battle axe.">
+									<span class="countOfItem" id="itemCount3-3">3</span>
+									<span class="costOfItem" id="costOfItem3-3">999g</span>
+									<div class="invExpansion3">
+										<div class="itemsName" id="itemName3-3">Copper Axe</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton3-3"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton3-3"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton3-3"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn4">
+							<div id="item3-4">
+								<div class="inventoryCell">
+									<img src="resources/images/bow.png" id="itemsImage3-4" class="invImage"
+										title="Styled after the best of the elven bows, this fine item exemplifies precision and lethality.">
+									<span class="countOfItem" id="itemCount3-4">3</span>
+									<span class="costOfItem" id="costOfItem3-4">999p</span>
+									<div class="invExpansion3">
+										<div class="itemsName" id="itemName3-4">Polished Ash Bow</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton3-4"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton3-4"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton3-4"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn5">
+							<div id="item3-5">
+								<div class="inventoryCell">
+									<img src="resources/images/staff.png" id="itemsImage3-5" class="invImage"
+										title="Can be used to channel great power as well as strike down foes.">
+									<span class="countOfItem" id="itemCount3-5">6</span>
+									<span class="costOfItem" id="costOfItem3-5">999p</span>
+									<div class="invExpansion3">
+										<div class="itemsName" id="itemName3-5">Staff of Zevious</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton3-5"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton3-5"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton3-5"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="invRow4">
+					<div class="row row4">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="itemsTitle">Potions</span>
+							</div>
+						</div>
+						<div class="column column-2 invColumn1">
+							<div id="item4-1">
+								<div class="inventoryCell">
+									<img src="resources/images/potionRed.png" id="itemsImage4-1" class="invImage"
+										title="Heals allies in combat.">
+									<span class="countOfItem" id="itemCount4-1">42</span>
+									<span class="costOfItem" id="costOfItem4-1">45c</span>
+									<div class="invExpansion4">
+										<div class="itemsName" id="itemName4-1">Minor Health Potion</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton4-1"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton4-1"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton4-1"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2  invColumn2">
+							<div id="item4-2">
+								<div class="inventoryCell">
+									<img src="resources/images/potionYellow.png" id="itemsImage4-2" class="invImage"
+										title="Fortifies your defense during combat.">
+									<span class="countOfItem" id="itemCount4-2">9</span>
+									<span class="costOfItem" id="costOfItem4-2">999s</span>
+									<div class="invExpansion4">
+										<div class="itemsName" id="itemName4-4">Minor Defense Potion</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton4-2"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton4-2"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton4-2"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn3">
+							<div id="item4-3">
+								<div class="inventoryCell">
+									<img src="resources/images/potionGreen.png" id="itemsImage4-3" class="invImage"
+										title="Increases your attack power during combat.">
+									<span class="countOfItem" id="itemCount4-3">3</span>
+									<span class="costOfItem" id="costOfItem4-3">999g</span>
+									<div class="invExpansion4">
+										<div class="itemsName" id="itemName4-3">Minor Attack Potion</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton4-3"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton4-3"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton4-3"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn4">
+							<div id="item4-4">
+								<div class="inventoryCell">
+									<img src="resources/images/potionWhite.png" id="itemsImage4-4" class="invImage"
+										title="Greatly decreases equipment failure during combat.">
+									<span class="countOfItem" id="itemCount4-4">3</span>
+									<span class="costOfItem" id="costOfItem4-4">999p</span>
+									<div class="invExpansion4">
+										<div class="itemsName" id="itemName4-4">Minor Mithril Potion</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton4-4"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton4-4"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton4-4"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn5">
+							<div id="item4-5">
+								<div class="inventoryCell">
+									<img src="resources/images/potionBlue.png" id="itemsImage4-5" class="invImage"
+										title="Can revive fallen allies during combat.">
+									<span class="countOfItem" id="itemCount4-5">6</span>
+									<span class="costOfItem" id="costOfItem4-5">999p</span>
+									<div class="invExpansion4">
+										<div class="itemsName" id="itemName4-5">Minor Revive Potion</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton4-5"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton4-5"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton4-5"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="invRow5">
+					<div class="row row5">
+						<div class="column column-2">
+							<div class="inventoryColumnTitles">
+								<span class="itemsTitle" style="color: #c4c">Special</span>
+							</div>
+						</div>
+						<div class="column column-2 invColumn1">
+							<div id="item5-1">
+								<div class="inventoryCell">
+									<img src="resources/images/repairKit.png" id="itemsImage5-1" class="invImage"
+										title="Allows you to repair equipment for allies in combat.">
+									<span class="countOfItem" id="itemCount5-1">52</span>
+									<span class="costOfItem" id="costOfItem5-1">55c</span>
+									<div class="invExpansion5">
+										<div class="itemsName" id="itemName5-1">Minor Repair Kit</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton5-1"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton5-1"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton5-1"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2  invColumn2">
+							<div id="item5-2">
+								<div class="inventoryCell">
+									<img src="resources/images/horse.png" id="itemsImage5-2" class="invImage"
+										title="This carrot shaped horse can be donated in combat to boost ally attack strenth.">
+									<span class="countOfItem" id="itemCount5-2">9</span>
+									<span class="costOfItem" id="costOfItem5-2">999s</span>
+									<div class="invExpansion5">
+										<div class="itemsName" id="itemName5-5">Small Horse</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton5-2"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton5-2"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton5-2"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn3">
+							<div id="item5-3">
+								<div class="inventoryCell">
+									<img src="resources/images/forge.png" id="itemsImage5-3" class="invImage"
+										title="This dwarven forge can be donated during combat to reduce equipment failures.">
+									<span class="countOfItem" id="itemCount5-3">3</span>
+									<span class="costOfItem" id="costOfItem5-3">999g</span>
+									<div class="invExpansion5">
+										<div class="itemsName" id="itemName5-3">Small Forge</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton5-3"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton5-3"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton5-3"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn4">
+							<div id="item5-4">
+								<div class="inventoryCell">
+									<img src="resources/images/rune.png" id="itemsImage5-4" class="invImage"
+										title="A combat rune, which can be used in combat to occasionally prevent death.">
+									<span class="countOfItem" id="itemCount5-4">3</span>
+									<span class="costOfItem" id="costOfItem5-4">999p</span>
+									<div class="invExpansion5">
+										<div class="itemsName" id="itemName5-4">Minor Life Force Rune</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton5-4"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton5-4"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton5-4"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column column-2 invColumn5">
+							<div id="item5-5">
+								<div class="inventoryCell">
+									<img src="resources/images/orb.png" id="itemsImage5-5" class="invImage"
+										title="The guardian orb can be donated in combat to summon an ancient which protects your allies.">
+									<span class="countOfItem" id="itemCount5-5">6</span>
+									<span class="costOfItem" id="costOfItem5-5">999p</span>
+									<div class="invExpansion5">
+										<div class="itemsName" id="itemName5-5">Level 1 Guardian Orb</div>
+										<div class="itemPricing">
+											<button type="button" class="pricingButton" id="donateItemButton5-5"
+												style="font-size: 16px;">🎁</button>
+											<button type="button" class="pricingButton" id="lowerItemPriceButton5-5"
+												style="color: #ff9999;">▼</button>
+											<button type="button" class="pricingButton" id="raiseItemPriceButton5-5"
+												style="color: #99ff99;">▲</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- #endregion -->
+
+			<!-- #region Status Tab -->
+			<div id='statusTab'>
+				<div class="row">
+					<div class="column column-4">
+						<div class="statusTitle">
+							Help Section
+						</div>
+						<div class="statusTextBox">
+							<div>RPG Vendor is a game about selling items to customers. You make money, bolster your
+								reputation, expand to new cities, and even help those in need in combat!</div>
+							<div>How to Start</div>
+							<div>In the middle tab, start by working. You're new here! You need to get to work and setup
+								shop. You'll want to work enough to make items that you can sell.</div>
+							<div>etc....</div>
+							<div>In the middle tab, start by working. You're new here! You need to get to work and setup
+								shop. You'll want to work enough to make items that you can sell.</div>
+							<div>etc....</div>
+							<div>In the middle tab, start by working. You're new here! You need to get to work and setup
+								shop. You'll want to work enough to make items that you can sell.</div>
+							<div>etc....</div>
+							<div>In the middle tab, start by working. You're new here! You need to get to work and setup
+								shop. You'll want to work enough to make items that you can sell.</div>
+							<div>etc....</div>
+						</div>
+					</div>
+					<div class="column column-4">
+						<div class="statusTitle">
+							Detailed Information
+						</div>
+						<div class="statusTextBox">
+							<div>Level: <span id="currentLevel">4</span></div>
+							<div>Total AP Earned: <span id="totalAP">238k</span></div>
+							<div>Total Money Earned: <span id="totalMoney">17p 19g 88s 12c</span></div>
+							<div>Total Faction Earned: <span id="totalFaction">12k</span></div>
+							<div>Total Crafting Earned: <span id="totalCrafting">932</span></div>
+							<div>Total Achievements Earned: <span id="totalAchievements">40</span>/50</div>
+							<div>Tussles Won/Played: <span id="totalTussles">122/156</span></div>
+							<div>Fights Won/Played: <span id="totalFights">84/120</span></div>
+							<div>Skirmishes Won/Played: <span id="total">32/88</span></div>
+							<div>Battles Won/Played: <span id="totalBattles">5/16</span></div>
+							<div>Final Bosses Beaten/Played: <span id="totalFinalBosses">6/10</span></div>
+							<div>Total Crafting Earned: <span id="totalCrafting">932</span></div>
+							<div>Total Achievements Earned: <span id="totalAchievements">40</span>/50</div>
+							<div>Tussles Won/Played: <span id="totalTussles">122/156</span></div>
+							<div>Fights Won/Played: <span id="totalFights">84/120</span></div>
+							<div>Skirmishes Won/Played: <span id="total">32/88</span></div>
+							<div>Battles Won/Played: <span id="totalBattles">5/16</span></div>
+							<div>Final Bosses Beaten/Played: <span id="totalFinalBosses">6/10</span></div>
+
+						</div>
+					</div>
+					<div class="column column-4">
+						<div style="text-align: center;">
+							<button class="craftingButton">
+								<span class="craftItem" id="craftContainerButton">Export Save</span>
+							</button>
+							<button class="craftingButton">
+								<span class="craftItem" id="craftContainerButton">Import Save</span>
+							</button>
+						</div>
+						<div>
+							<hr style="margin: 10px;" />
+						</div>
+						<div class="statusTitle">
+							Achievements
+						</div>
+						<div class="statusTextBox">
+							<div>Achievements will show up here when they are earned.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- #endregion -->
+
+			<!-- #region Human Tab -->
+
+			<div id='humanTab'>
+				<div class="cityText human">Unlock: 100 human tales <br /><br />StormGate, the largest human city in
+					Vingaard. People bussle in and out of streets, markets, and alleys, focused on themselves, barely
+					aware of the world outside the city</div>
+				<div class="row" id="humanCity">
+					<div class="column column-4">
+						<div>
+							StormGate, the largest human city in Vingaard. People bussle in and out of streets, markets,
+							and alleys, focused on themselves, barely aware of the world outside the city.
+						</div>
+						<div>
+							<div class="progressTitleCityTabs">
+								Human Faction: Level <span id="humanFactionLevel">4</span>
+							</div>
+							<div class="progressBarBorder">
+								<span id="progressRightStats">333/1k</span>
+								<div class="progressBar humanFactionProgressBar">
+									33%
+								</div>
+							</div>
+						</div>
+						<div class="cityHistoryBoxTitle">
+							StormGate History
+						</div>
+						<div class="cityHistoryBox">
+							History Text Windows: overflow StormGate, the largest human city in Vingaard. StormGate, the
+							largest human city in Vingaard. People bussle in and out of streets, markets, and alleys,
+							focused on themselves, barely aware of the world outside the city. People bussle in and out
+							of streets, markets, and alleys, focused on themselves, barely aware of the world outside
+							the city. StormGate, the largest human city in Vingaard. People bussle in and out of
+							streets, markets, and alleys, focused on themselves, barely aware of the world outside the
+							city.
+						</div>
+					</div>
+					<div class="column column-4">
+						<select class="combatStartList">
+							<option id="combatSelect" selected>Aid in Combat</option>
+							<option id="beginCombath1">Lousy Thief (1 vs 1)</option>
+							<option id="beginCombath2">Alley Fight (2 vs 2)</option>
+							<option id="beginCombath3">Pub Brawl (4 vs 4)</option>
+							<option id="beginCombath4">Uprising (5 vs 5)</option>
+							<option id="beginCombath5">Boss: Possesssed Mayor (6 vs 1)</option>
+						</select>
+						<div class="row">
+							<div class="column column-6 cityItemTitles">
+								<div class="humanTitleRow">
+									Items
+								</div>
+							</div>
+							<div class="column column-6 cityItemTitles">
+								<div class="humanTitleRow">
+									Potions
+								</div>
+							</div>
+						</div>
+						<div id="humanRow1">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/shield.png" id="itemsImage1-2-c" class="invImage"
+											title="Can not be used as a lean to.">
+										<span class="countOfItem" id="itemCount1-2-c">9</span>
+										<span class="costOfItem" id="costOfItem1-2-c">999s</span>
+										<div class="humanExpansion1">
+											<div class="itemsName" id="itemName1-2-c">
+												Novice Shield
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton1-2-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton1-2-c"
+													title="Import this by adding to your runner's queue"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionRed.png" id="itemsImage4-1-ph" class="invImage"
+											title="Heals allies in combat.">
+										<span class="countOfItem" id="itemCount4-1-ph">42</span>
+										<div class="humanExpansion1">
+											<div class="itemsName" id="itemName4-1-ph">Minor Health Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-1-ph"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-1-ph"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="humanRow2">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/tunic.png" id="itemsImage2-2-c" class="invImage"
+											title="A sturdy garment for any application.">
+										<span class="countOfItem" id="itemCount2-2-c">9</span>
+										<span class="costOfItem" id="costOfItem2-2-c">999s</span>
+										<div class="humanExpansion2">
+											<div class="itemsName" id="itemName2-2-c">
+												Tanned Leather Tunic
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton2-2-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton2-2-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionYellow.png" id="itemsImage4-2-ph"
+											class="invImage" title="Fortifies your defense during combat.">
+										<span class="countOfItem" id="itemCount4-2-ph">42</span>
+										<div class="humanExpansion2">
+											<div class="itemsName" id="itemName4-2-ph">Minor Defense Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-2-ph"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-2-ph"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="humanRow3">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/sword.png" id="itemsImage3-2-c" class="invImage"
+											title="Sturdy and sharp, this sword is light and will never dull, unless you use it a lot, then it gets dull.">
+										<span class="countOfItem" id="itemCount3-2-c">9</span>
+										<span class="costOfItem" id="costOfItem3-2-c">999s</span>
+										<div class="humanExpansion3">
+											<div class="itemsName" id="itemName3-2-c">
+												Copper Sword
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton3-2-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton3-2-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionGreen.png" id="itemsImage4-3-ph"
+											class="invImage" title="Increases your attack power during combat.">
+										<span class="countOfItem" id="itemCount4-3-ph">42</span>
+										<div class="humanExpansion3">
+											<div class="itemsName" id="itemName4-3-ph">Minor Attack Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-3-ph"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-3-ph"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="humanRow4">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/potionYellow.png" id="itemsImage4-2-c"
+											class="invImage" title="Increases your attack power during combat.">
+										<span class="countOfItem" id="itemCount4-2-c">9</span>
+										<span class="costOfItem" id="costOfItem4-2-c">999s</span>
+										<div class="humanExpansion4">
+											<div class="itemsName" id="itemName4-2-c">
+												Minor Attack Potion
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-2-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-2-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionWhite.png" id="itemsImage4-4-ph"
+											class="invImage" title="Greatly decreases equipment failure during combat.">
+										<span class="countOfItem" id="itemCount4-4-ph">42</span>
+										<div class="humanExpansion4">
+											<div class="itemsName" id="itemName4-4-ph">Minor Mithril Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-4-ph"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-4-ph"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="humanRow5">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/horse.png" id="itemsImage4-2-c" class="invImage"
+											title="This carrot shaped horse can be donated in combat to boost ally attack strenth.">
+										<span class="countOfItem" id="itemCount5-2-c">9</span>
+										<span class="costOfItem" id="costOfItem5-2-c">999s</span>
+										<div class="humanExpansion5">
+											<div class="itemsName" id="itemName5-2-c">
+												Small Horse
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton5-2-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton5-2-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionBlue.png" id="itemsImage4-5-ph"
+											class="invImage" title="Can revive fallen allies during combat.">
+										<span class="countOfItem" id="itemCount4-5-ph">42</span>
+										<div class="humanExpansion5">
+											<div class="itemsName" id="itemName4-5-ph">Minor Revive Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-5-ph"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-5-ph"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column column-4">
+						<div>
+							Spoils of War!
+						</div>
+						<div class="cityHistoryBox spoils">
+							<div>2g 20s 100c</div>
+							<div>202xp</div>
+							<div>12 sword craft</div>
+							<div>15 horse craft</div>
+						</div>
+						<div class="workCell"
+							title="Speeds up your runners.  They take half the time to complete their missions."
+							style="text-align: center;">
+							<button id="cityUpgradeButtonHuman" class="actionButton" disabled="disabled"
+								style="margin-top: 10px">Inspire Runners<div id="boostApCost">Level 5</div></button>
+						</div>
+						<div class="runnerTitle">
+							StormGate Runners
+						</div>
+						<div class="progressRunnerTitle">
+							Lucia: <button type="button" class="pricingButton runnerButton" id="lowerTorchPriceButton"
+								disabled="disabled">39:29</button> <button type="button"
+								class="pricingButton runnerButton" id="lowerTorchPriceButton">Cancel</button>
+						</div>
+						<div class="progressBarBorder">
+							<span class="runnerTransitSlot">
+								<img src="resources/images/sword.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+								<img src="resources/images/tunic.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+							</span>
+							<div class="progressBar humanRunner2ProgressBar">
+								44%
+							</div>
+						</div>
+						<div class="progressRunnerTitle">
+							Gerald: <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton">Send Runner</button>
+						</div>
+						<div class="progressBarBorder">
+							<div class="progressBar humanRunner3ProgressBar">
+								<span class="runnerSlot">
+									<img src="resources/images/sword.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/horse.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/tunic.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+								</span>
+							</div>
+						</div>
+						<div class="progressRunnerTitle">
+							Esm'r3lda: <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton">Export Spoils</button>
+						</div>
+						<div class="progressBarBorder">
+							<div class="progressBar humanRunner4ProgressBar">
+								<span class="runnerReady">Ready to import items or export spoils.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- #endregion -->
+
+			<!-- #region Dwarf Tab -->
+			<div id='dwarfTab'>
+				<div class="row">
+					<div class="column column-4">
+						<div>
+							Built within the cavernous openings of an active volcano, GrundtStone is home to proud and
+							hard-working Dwarves.
+						</div>
+						<div>
+							<div class="progressTitleCityTabs">
+								Dwarf Faction: Level <span id="dwarfFactionLevel">4</span>
+							</div>
+							<div class="progressBarBorder">
+								<span id="progressRightStats">333/1k</span>
+								<div class="progressBar dwarfFactionProgressBar">
+									33%
+								</div>
+							</div>
+						</div>
+						<div class="cityHistoryBoxTitle">
+							GrundtStone History
+						</div>
+						<div class="cityHistoryBox">
+							History Text Windows: Built within the cavernous openings of an active volcano, GrundtStone
+							is home to proud and hard-working Dwarves.Built within the cavernous openings of an active
+							volcano, GrundtStone is home to proud and hard-working Dwarves.Built within the cavernous
+							openings of an active volcano, GrundtStone is home to proud and hard-working Dwarves.
+						</div>
+					</div>
+					<div class="column column-4">
+						<select class="combatStartList">
+							<option id="combatSelect" selected>Aid in Combat</option>
+							<option id="beginCombatd1">Drunken Fight (2v2)</option>
+							<option id="beginCombatd2">Goblin Assault (4v4)</option>
+							<option id="beginCombatd3">Orc Campaign (6v6)</option>
+							<option id="beginCombatd4">Spider Mine Reclamation (8v8)</option>
+							<option id="beginCombatd5">Boss: Chasm Guardian (12v1)</option>
+						</select>
+						<div class="row">
+							<div class="column column-6 cityItemTitles">
+								<div class="dwarfTitleRow">
+									Items
+								</div>
+							</div>
+							<div class="column column-6 cityItemTitles">
+								<div class="dwarfTitleRow">
+									Potions
+								</div>
+							</div>
+						</div>
+						<div id="dwarfRow1">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/hammer.png" id="itemsImage1-3-c" class="invImage"
+											title="Captain Hammer, corporate tool.">
+										<span class="countOfItem" id="itemCount1-3-c">9</span>
+										<span class="costOfItem" id="costOfItem1-3-c">999s</span>
+										<div class="dwarfExpansion1">
+											<div class="itemsName" id="itemName1-3-c">
+												Well Worn Hammer
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton1-3-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton1-3-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionRed.png" id="itemsImage4-1-pd" class="invImage"
+											title="Heals allies in combat.">
+										<span class="countOfItem" id="itemCount4-1-pd">42</span>
+										<div class="dwarfExpansion1">
+											<div class="itemsName" id="itemName4-1-pd">Minor Health Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-1-pd"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-1-pd"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="dwarfRow2">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/platemail.png" id="itemsImage2-3-c" class="invImage"
+											title="The glistening armor radiates the quality of dwarven craftsmanship, yet done by your hand.">
+										<span class="countOfItem" id="itemCount2-3-c">9</span>
+										<span class="costOfItem" id="costOfItem2-3-c">999s</span>
+										<div class="dwarfExpansion2">
+											<div class="itemsName" id="itemName2-3-c">
+												Polished Iron Platemail
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton2-3-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton2-3-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionYellow.png" id="itemsImage4-2-pd"
+											class="invImage" title="Fortifies your defense during combat.">
+										<span class="countOfItem" id="itemCount4-2-pd">42</span>
+										<div class="dwarfExpansion2">
+											<div class="itemsName" id="itemName4-2-pd">Minor Defense Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-2-pd"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-2-pd"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="dwarfRow3">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/axe.png" id="itemsImage3-3-c" class="invImage"
+											title="No enemy will survive a strike from this powerful battle axe.">
+										<span class="countOfItem" id="itemCount3-3-c">9</span>
+										<span class="costOfItem" id="costOfItem3-3-c">999s</span>
+										<div class="dwarfExpansion3">
+											<div class="itemsName" id="itemName3-3-c">
+												Copper Axe
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton3-3-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton3-3-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionGreen.png" id="itemsImage4-3-pd"
+											class="invImage" title="Increases your attack power during combat.">
+										<span class="countOfItem" id="itemCount4-3-pd">42</span>
+										<div class="dwarfExpansion3">
+											<div class="itemsName" id="itemName4-3-pd">Minor Attack Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-3-pd"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-3-pd"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="dwarfRow4">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/potionGreen.png" id="itemsImage4-3-c"
+											class="invImage" title="Increases your attack power during combat.">
+										<span class="countOfItem" id="itemCount4-3-c">9</span>
+										<span class="costOfItem" id="costOfItem4-3-c">999s</span>
+										<div class="dwarfExpansion4">
+											<div class="itemsName" id="itemName4-3-c">
+												Minor Attack Potion
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-3-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-3-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionWhite.png" id="itemsImage4-4-pd"
+											class="invImage" title="Greatly decreases equipment failure during combat.">
+										<span class="countOfItem" id="itemCount4-4-pd">42</span>
+										<div class="dwarfExpansion4">
+											<div class="itemsName" id="itemName4-4-pd">Minor Mithril Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-4-pd"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-4-pd"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="dwarfRow5">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/forge.png" id="itemsImage4-2-c" class="invImage"
+											title="This dwarven forge can be donated during combat to reduce equipment failures.">
+										<span class="countOfItem" id="itemCount5-3-c">9</span>
+										<span class="costOfItem" id="costOfItem5-3-c">999s</span>
+										<div class="dwarfExpansion5">
+											<div class="itemsName" id="itemName5-3-c">
+												Small Forge
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton5-3-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton5-3-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionBlue.png" id="itemsImage4-5-pd"
+											class="invImage" title="Can revive fallen allies during combat.">
+										<span class="countOfItem" id="itemCount4-5-pd">42</span>
+										<div class="dwarfExpansion5">
+											<div class="itemsName" id="itemName4-5-pd">Minor Revive Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-5-pd"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-5-pd"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column column-4">
+						<div>
+							Spoils of War!
+						</div>
+						<div class="cityHistoryBox spoils">
+							<div>2g 20s 100c</div>
+							<div>202xp</div>
+							<div>12 hammer craft</div>
+							<div>15 attack potion craft</div>
+						</div>
+
+						<div class="workCell" title="Dwarf armor is increased 25% during combat."
+							style="text-align: center;">
+							<button id="cityUpgradeButtonDwarf" class="actionButton" style="margin-top: 10px">Fortify
+								Armor<div id="boostApCost">Level 4</div></button>
+						</div>
+
+						<div class="runnerTitle">
+							GrundtStone Runners
+						</div>
+						<!--
+					<div class="progressRunnerTitle">
+						Balmek : <button type="button" class="pricingButton runnerButton" id="lowerTorchPriceButton" disabled="disabled">Delivering Spoils: 05:29</button>												
+					</div>
+					<div class="progressBarBorder">
+						<div class="progressBar dwarfRunner1ProgressBar">
+							78%							
+						</div>							  
+					</div>	
+					-->
+						<div class="progressRunnerTitle">
+							Jynnoula : <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton" disabled="disabled">39:29</button> <button type="button"
+								class="pricingButton runnerButton" id="lowerTorchPriceButton">Cancel</button>
+						</div>
+						<div class="progressBarBorder">
+							<span class="runnerTransitSlot">
+								<img src="resources/images/sword.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+								<img src="resources/images/tunic.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+							</span>
+							<div class="progressBar dwarfRunner2ProgressBar">
+								44%
+							</div>
+						</div>
+						<div class="progressRunnerTitle">
+							Tornar : <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton">Send Runner</button>
+						</div>
+						<div class="progressBarBorder">
+							<div class="progressBar dwarfRunner3ProgressBar">
+								<span class="runnerSlot">
+									<img src="resources/images/sword.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/horse.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/tunic.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+
+								</span>
+							</div>
+						</div>
+						<div class="progressRunnerTitle">
+							Balmek: <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton">Export Spoils</button>
+						</div>
+						<div class="progressBarBorder">
+							<div class="progressBar dwarfRunner4ProgressBar">
+								<span class="runnerReady">Ready to import items or export spoils.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- #endregion -->
+
+			<!-- #region Elf Tab -->
+			<div id='elfTab'>
+				<div class="row">
+					<div class="column column-4">
+						<div>
+							The ancient elven city of Lethleriel rests in the heart of the forest.
+						</div>
+						<div>
+							<div class="progressTitleCityTabs">
+								Elf Faction: Level <span id="elfFactionLevel">2</span>
+							</div>
+							<div class="progressBarBorder">
+								<span id="progressRightStats">333/1k</span>
+								<div class="progressBar elfFactionProgressBar">
+									33%
+								</div>
+							</div>
+						</div>
+						<div class="cityHistoryBoxTitle">
+							Lethleriel History
+						</div>
+						<div class="cityHistoryBox">
+							History Text Windows: The ancient elven city of Lethleriel rests in the heart of the
+							forest.The ancient elven city of Lethleriel rests in the heart of the forest.The ancient
+							elven city of Lethleriel rests in the heart of the forest.The ancient elven city of
+							Lethleriel rests in the heart of the forest.
+						</div>
+					</div>
+					<div class="column column-4">
+						<select class="combatStartList">
+							<option id="combatSelect" selected>Aid in Combat</option>
+							<option id="beginCombate1">Goblin Skirmish (3v3)</option>
+							<option id="beginCombate2">Undead Hunt (6v6)</option>
+							<option id="beginCombate3">Direwolves Surprise Attack (9v9)</option>
+							<option id="beginCombate4">Wraiths of the Ancient Ruins (12v12)</option>
+							<option id="beginCombate5">Boss: Shepherd of the Netherworld (15v1)</option>
+						</select>
+						<div class="row">
+							<div class="column column-6 cityItemTitles">
+								<div class="elfTitleRow">
+									Items
+								</div>
+							</div>
+							<div class="column column-6 cityItemTitles">
+								<div class="elfTitleRow">
+									Potions
+								</div>
+							</div>
+						</div>
+						<div id="elfRow1">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/arrows.png" id="itemsImage1-4-c" class="invImage"
+											title="Arrows for Elves; what could be finer?">
+										<span class="countOfItem" id="itemCount1-4-c">9</span>
+										<span class="costOfItem" id="costOfItem1-4-c">999s</span>
+										<div class="elfExpansion1">
+											<div class="itemsName" id="itemName1-4-c">
+												Wooden Arrows
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton1-4-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton1-4-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionRed.png" id="itemsImage4-1-pe" class="invImage"
+											title="Heals allies in combat.">
+										<span class="countOfItem" id="itemCount4-1-pe">42</span>
+										<div class="elfExpansion1">
+											<div class="itemsName" id="itemName4-1-pe">Minor Health Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-1-pe"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-1-pe"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="elfRow2">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/cloak.png" id="itemsImage2-4-c" class="invImage"
+											title="Elvish cloaks, imbued with power, made from the finest of ingredients.">
+										<span class="countOfItem" id="itemCount2-4-c">9</span>
+										<span class="costOfItem" id="costOfItem2-4-c">999s</span>
+										<div class="elfExpansion2">
+											<div class="itemsName" id="itemName2-4-c">
+												Traveling Cloak
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton2-4-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton2-4-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionYellow.png" id="itemsImage4-2-pe"
+											class="invImage" title="Fortifies your defense during combat.">
+										<span class="countOfItem" id="itemCount4-2-pe">42</span>
+										<div class="elfExpansion2">
+											<div class="itemsName" id="itemName4-2-pe">Minor Defense Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-2-pe"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-2-pe"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="elfRow3">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/bow.png" id="itemsImage3-4-c" class="invImage"
+											title="Styled after the best of the elven bows, this fine item exemplifies precision and lethality.">
+										<span class="countOfItem" id="itemCount3-4-c">9</span>
+										<span class="costOfItem" id="costOfItem3-4-c">999s</span>
+										<div class="elfExpansion3">
+											<div class="itemsName" id="itemName3-4-c">
+												Polished Ash Bow
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton3-4-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton3-4-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionGreen.png" id="itemsImage4-3-pe"
+											class="invImage" title="Increases your attack power during combat.">
+										<span class="countOfItem" id="itemCount4-3-pe">42</span>
+										<div class="elfExpansion3">
+											<div class="itemsName" id="itemName4-3-pe">Minor Attack Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-3-pe"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-3-pe"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="elfRow4">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/potionWhite.png" id="itemsImage4-4-c"
+											class="invImage" title="Greatly decreases equipment failure during combat.">
+										<span class="countOfItem" id="itemCount4-4-c">9</span>
+										<span class="costOfItem" id="costOfItem4-4-c">999s</span>
+										<div class="elfExpansion4">
+											<div class="itemsName" id="itemName4-4-c">
+												Minor Mithril Potion
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-4-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-4-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionWhite.png" id="itemsImage4-4-pe"
+											class="invImage" title="Greatly decreases equipment failure during combat.">
+										<span class="countOfItem" id="itemCount4-4-pe">42</span>
+										<div class="elfExpansion4">
+											<div class="itemsName" id="itemName4-4-pe">Minor Mithril Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-4-pe"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-4-pe"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="elfRow5">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/rune.png" id="itemsImage4-2-c" class="invImage"
+											title="A combat rune, which can be used in combat to occasionally prevent death.">
+										<span class="countOfItem" id="itemCount5-4-c">9</span>
+										<span class="costOfItem" id="costOfItem5-4-c">999s</span>
+										<div class="elfExpansion5">
+											<div class="itemsName" id="itemName5-4-c">
+												Minor Life Force Rune
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton5-4-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton5-4-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionBlue.png" id="itemsImage4-5-pe"
+											class="invImage" title="Can revive fallen allies during combat.">
+										<span class="countOfItem" id="itemCount4-5-pe">42</span>
+										<div class="elfExpansion5">
+											<div class="itemsName" id="itemName4-5-pe">Minor Revive Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-5-pe"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-5-pe"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column column-4">
+						<div>
+							Spoils of War!
+						</div>
+						<div class="cityHistoryBox spoils">
+							<div>2g 20s 100c</div>
+							<div>202xp</div>
+							<div>12 cloak craft</div>
+							<div>15 bow craft</div>
+						</div>
+						<div class="workCell" title="elf armor is increased 25% during combat."
+							style="text-align: center;">
+							<button id="cityUpgradeButtonelf" class="actionButton" style="margin-top: 10px">New Runner:
+								Elluin<div id="boostApCost">Level 2</div></button>
+						</div>
+						<div class="runnerTitle">
+							Lethleriel Runners
+						</div>
+						<div class="progressRunnerTitle">
+							Kailu: <button type="button" class="pricingButton runnerButton" id="lowerTorchPriceButton"
+								disabled="disabled">39:29</button> <button type="button"
+								class="pricingButton runnerButton" id="lowerTorchPriceButton">Cancel</button>
+						</div>
+						<div class="progressBarBorder">
+							<span class="runnerTransitSlot">
+								<img src="resources/images/sword.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+								<img src="resources/images/tunic.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+							</span>
+							<div class="progressBar elfRunner2ProgressBar">
+								44%
+							</div>
+						</div>
+						<div class="progressRunnerTitle">
+							Ameria : <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton">Send Runner</button>
+						</div>
+						<div class="progressBarBorder">
+							<div class="progressBar elfRunner3ProgressBar">
+								<span class="runnerSlot">
+									<img src="resources/images/sword.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/horse.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/tunic.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- #endregion -->
+
+			<!-- #region Wizard Tab -->
+			<div id='wizardTab'>
+				<div class="row">
+					<div class="column column-4">
+						<div>
+							The four towers of Ezlore house four wizards who have agreed to live near each other,
+							putting aside their differences, to further the agenda of their kind.
+						</div>
+						<div>
+							<div class="progressTitleCityTabs">
+								Wizard Faction: Level <span id="wizardFactionLevel">1</span>
+							</div>
+							<div class="progressBarBorder">
+								<span id="progressRightStats">333/1k</span>
+								<div class="progressBar wizardFactionProgressBar">
+									33%
+								</div>
+							</div>
+						</div>
+						<div class="cityHistoryBoxTitle">
+							Ezlore History
+						</div>
+						<div class="cityHistoryBox">
+							History Text Windows: The four towers of Ezlore house four wizards who have agreed to live
+							near each other, putting aside their differences, to further the agenda of their kind. The
+							four towers of Ezlore house four wizards who have agreed to live near each other, putting
+							aside their differences, to further the agenda of their kind. The four towers of Ezlore
+							house four wizards who have agreed to live near each other, putting aside their differences,
+							to further the agenda of their kind.
+						</div>
+					</div>
+					<div class="column column-4">
+						<select class="combatStartList">
+							<option id="combatSelect" selected>Aid in Combat</option>
+							<option id="beginCombatw1">Wizard Level Test (1v5)</option>
+							<option id="beginCombatw2">Cleansing of the Swamps (2v10)</option>
+							<option id="beginCombatw3">The Demons of Grimsbane (3v15)</option>
+							<option id="beginCombatw4">Defend Ezlore Against the Orcs Swarm (4v18)</option>
+							<option id="beginCombatw5">Boss: Four Warlocks of ShadowSoul (4v4)</option>
+						</select>
+						<div class="row">
+							<div class="column column-6 cityItemTitles">
+								<div class="wizardTitleRow">
+									Items
+								</div>
+							</div>
+							<div class="column column-6 cityItemTitles">
+								<div class="wizardTitleRow">
+									Potions
+								</div>
+							</div>
+						</div>
+						<div id="wizardRow1">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/spellbook.png" id="itemsImage1-5-c" class="invImage"
+											title="A wizard with no spellbook is useless.">
+										<span class="countOfItem" id="itemCount1-5-c">9</span>
+										<span class="costOfItem" id="costOfItem1-5-c">999s</span>
+										<div class="wizardExpansion1">
+											<div class="itemsName" id="itemName1-5-c">
+												First Book of Spells
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton1-5-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton1-5-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionRed.png" id="itemsImage4-1-pe" class="invImage"
+											title="Heals allies in combat.">
+										<span class="countOfItem" id="itemCount4-1-pe">42</span>
+										<div class="wizardExpansion1">
+											<div class="itemsName" id="itemName4-1-pe">Minor Health Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-1-pe"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-1-pe"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="wizardRow2">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/robe.png" id="itemsImage2-5-c" class="invImage"
+											title="A wizard's robe is more than a mere garment; it empowers the wizard to carry out his will.">
+										<span class="countOfItem" id="itemCount2-5-c">9</span>
+										<span class="costOfItem" id="costOfItem2-5-c">999s</span>
+										<div class="wizardExpansion2">
+											<div class="itemsName" id="itemName2-5-c">
+												Prime Robe
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton2-5-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton2-5-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionYellow.png" id="itemsImage4-2-pw"
+											class="invImage" title="Fortifies your defense during combat.">
+										<span class="countOfItem" id="itemCount4-2-pw">42</span>
+										<div class="wizardExpansion2">
+											<div class="itemsName" id="itemName4-2-pw">Minor Defense Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-2-pw"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-2-pw"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="wizardRow3">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/staff.png" id="itemsImage3-5-c" class="invImage"
+											title="Can be used to channel great power as well as strike down foes.">
+										<span class="countOfItem" id="itemCount3-5-c">9</span>
+										<span class="costOfItem" id="costOfItem3-5-c">999s</span>
+										<div class="wizardExpansion3">
+											<div class="itemsName" id="itemName3-5-c">
+												Staff of Zevious
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton3-5-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton3-5-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionGreen.png" id="itemsImage4-3-pw"
+											class="invImage" title="Increases your attack power during combat.">
+										<span class="countOfItem" id="itemCount4-3-pw">42</span>
+										<div class="wizardExpansion3">
+											<div class="itemsName" id="itemName4-3-pw">Minor Attack Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-3-pw"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-3-pw"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="wizardRow4">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/potionBlue.png" id="itemsImage4-5-c" class="invImage"
+											title="Can revive fallen allies during combat.">
+										<span class="countOfItem" id="itemCount4-5-c">9</span>
+										<span class="costOfItem" id="costOfItem4-5-c">999s</span>
+										<div class="wizardExpansion4">
+											<div class="itemsName" id="itemName4-5-c">
+												Minor Revive Potion
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-5-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-5-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionWhite.png" id="itemsImage4-4-pw"
+											class="invImage" title="Greatly decreases equipment failure during combat.">
+										<span class="countOfItem" id="itemCount4-4-pw">42</span>
+										<div class="wizardExpansion4">
+											<div class="itemsName" id="itemName4-4-pw">Minor Mithril Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-4-pw"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-4-pw"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="wizardRow5">
+							<div id="row">
+								<div class="column column-6">
+									<div class="inventoryCell">
+										<img src="resources/images/orb.png" id="itemsImage4-2-c" class="invImage"
+											title="The guardian orb can be donated in combat to summon an ancient which protects your allies.">
+										<span class="countOfItem" id="itemCount5-5-c">9</span>
+										<span class="costOfItem" id="costOfItem5-5-c">999s</span>
+										<div class="wizardExpansion5">
+											<div class="itemsName" id="itemName5-5-c">
+												Level 1 Guardian Orb
+											</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton5-5-c"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton5-5-c"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column column-6">
+									<div class="inventoryCell potionCell">
+										<img src="resources/images/potionBlue.png" id="itemsImage4-5-pw"
+											class="invImage" title="Can revive fallen allies during combat.">
+										<span class="countOfItem" id="itemCount4-5-pw">42</span>
+										<div class="wizardExpansion5">
+											<div class="itemsName" id="itemName4-5-pw">Minor Revive Potion</div>
+											<div class="cityItemActions">
+												<button type="button" class="pricingButton" id="donateItemButton4-5-pw"
+													style="font-size: 16px;">🎁</button>
+												<button type="button" class="pricingButton" id="importItemButton4-5-pw"
+													style="font-size: 16px;">⇤</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column column-4">
+						<div>
+							Spoils of War!
+						</div>
+						<div class="cityHistoryBox spoils">
+							<div>2g 20s 100c</div>
+							<div>202xp</div>
+							<div>12 spellbook craft</div>
+						</div>
+						<div class="workCell" title="Wizards share knowledge of how to build their rare orbs."
+							style="text-align: center;">
+							<button id="cityUpgradeButtonwizard" class="actionButton" style="margin-top: 10px"
+								disabled="disabled">+25 Orb Craft<div id="boostApCost">Level 2</div></button>
+						</div>
+						<div class="runnerTitle">
+							Ezlore Acolyte Runners
+						</div>
+						<div class="progressRunnerTitle">
+							Ebroveus: <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton" disabled="disabled">39:29</button> <button type="button"
+								class="pricingButton runnerButton" id="lowerTorchPriceButton">Cancel</button>
+						</div>
+						<div class="progressBarBorder">
+							<span class="runnerTransitSlot">
+								<img src="resources/images/sword.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+								<img src="resources/images/tunic.png" class="runnerTransitImage" />
+								<img src="resources/images/horse.png" class="runnerTransitImage" />
+							</span>
+							<div class="progressBar wizardRunner2ProgressBar">
+								44%
+							</div>
+						</div>
+						<div class="progressRunnerTitle">
+							Eprihan : <button type="button" class="pricingButton runnerButton"
+								id="lowerTorchPriceButton">Send Runner</button>
+						</div>
+						<div class="progressBarBorder">
+							<div class="progressBar wizardRunner3ProgressBar">
+								<span class="runnerSlot">
+									<img src="resources/images/sword.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/horse.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+									<img src="resources/images/tunic.png" class="runnerSlotImage" />
+								</span>
+								<span class="runnerSlot">
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- #endregion -->
+
+		<!-- #region Customer Container -->
+		<div class="customer-container">
+			<div id="customer-title">
+				<div class="box-title customerLine">
+					<span id="numberOfCustomersText">2 Customers Waiting. . .</span>
+				</div>
+			</div>
+			<div class="boxed-text">
+				<div class="row">
+					<div class="column column-7">
+						<div id="customerIntro">
+							A weary human appeared!
+						</div>
+						<div id="customerIntroText">
+							"Ugh... I'm completely useless over here. I could use some help."
+							<div style="padding-top: 8px;">Buy: <span id="customerRequestedItem">(1) wooden sword</span>
+							</div>
+							<div>Repair: <span id="customerRepairItem">Rusty Sword</span></div>
+						</div>
+					</div>
+					<div class="column column-5">
+						<div class="row">
+							<div class="column column-5">
+								<div id="middleCustomerColumn">
+									<div id="sell" class="middleCustomerLink">
+										<span id="sellPointer"><img src="resources/images/fingerPointRight.png"
+												height="40" width="40" /></span>Sell
+									</div>
+								</div>
+							</div>
+							<div class="column column-7">
+								<div class="sellDetail">
+									<span id="sellDetailText">+50c</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column column-5">
+								<div id="middleCustomerColumn">
+									<div id="discount" class="middleCustomerLink">
+										<span id="discountPointer"><img src="resources/images/fingerPointRight.png"
+												height="40" width="40" /></span>Discount
+									</div>
+								</div>
+							</div>
+							<div class="column column-7">
+								<div class="sellDetail">
+									<span id="discountDetailText">+5c, +10 human rp</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column column-5">
+								<div id="middleCustomerColumn">
+									<div id="barter" class="middleCustomerLink">
+										<span id="barterPointer"><img src="resources/images/fingerPointRight.png"
+												height="40" width="40" /></span>Trade
+									</div>
+								</div>
+							</div>
+							<div class="column column-7">
+								<div class="sellDetail">
+									<span id="barterDetailText">+(2)Torch</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column column-5">
+								<div id="middleCustomerColumn">
+									<div id="repair" class="middleCustomerLink">
+										<span id="repairPointer"><img src="resources/images/fingerPointRight.png"
+												height="40" width="40" /></span>Repair
+									</div>
+								</div>
+							</div>
+							<div class="column column-7">
+								<div class="sellDetail">
+									<span id="repairDetailText">-100ap, +20c, +1craft</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		<div class="infoLinks">
+			<a href="https://www.reddit.com/r/RPGVendor/">reddit</a> |
+			<a href="">wiki</a> |
+			<a href="">version</a> |
+			<a href="">about</a> |
+			<a href="">thanks</a>
+		</div>
+		<!-- #endregion -->
+
+	</div>
+
+</body>
+
+</html>

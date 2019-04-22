@@ -1,0 +1,7 @@
+,costType,upgradeType
+1,ap,+ap/click
+2,copper,ap/second
+3,other,*ap/click
+4,,*ap/second
+5,,
+99,,method

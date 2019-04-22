@@ -1,0 +1,18 @@
+upgradeId,title,description,cost,costType,costLabel,typeOfUpgrade1,upgradeAmount1,typeOfUpgrade2,upgradeAmount2,upgradeMethod,nextUpgradeID
+1,"Smarter, Not Harder",Add 0.1 ap per click,5,1,5 ap,1,0.1,,,,1
+2,Part Time Help,You earn 0.10ap per second more,200,2,200 ap,2,0.1,,,,10
+3,Inner Focus,Gives your ap/click a temporary boost of 100% for 5 seconds,50,1,Unlock for 50 ap,99,,,,boostApUnlock,17
+4,Reuse Your Refuse,Add 10ap per click,2500,1,2.5k ap,2,10,,,,12
+5,Full Time Hand,You earn 10ap per second more,500000,2,500 silver,1,10,,,,13
+6,Helpful Friends,The generosity of others grants you an unexpected bounty of ap. It pays to have a good reputation!,0,3,2% chance per sale,99,,,,apSurplus,14
+7,Study at the Phoenix Guild,"Oh boy... no more adding, now we multiply your ap by 1.2 per click!",750000,1,750k ap,3,1.2,,,,15
+8,Hire an Apprentice,"Earns 100ap per second more, also brings everyone else's production up by a factor of 1.2 per second.",100000000,2,100 gold,2,100,4,1.2,,16
+9,"Smarter, Not Harder 2",Add 0.2 ap per click,10,1,10 ap,1,0.2,,,,9
+10,Part Time Help,You earn 0.10ap per second more,200,2,,2,0.1,,,,
+11,"Gods, give me strength!",Gives your ap/click a temporary boost of 100%,0,3,Ready!,99,,,,boostAp,11
+12,Reuse Your Refuse,Add 10ap per click,2500,1,,2,10,,,,
+13,Full Time Hand,You earn 10ap per second more,500000,2,,1,10,,,,
+14,Helpful Friends,The generosity of others grants you an unexpected bounty of ap. It pays to have a good reputation!,0,3,,99,,,,apSurplus,
+15,Study at the Phoenix Guild,"Oh boy... no more adding, now we multiply your ap by 1.2 per click!",750000,1,,3,1.2,,,,
+16,Hire an Apprentice,"Earns 100ap per second more, also brings everyone else's production up by a factor of 1.2 per second.",100000000,2,,2,100,4,1.2,,
+17,Inner Focus,Gives your ap/click a temporary boost of 100% for 5 seconds,0,3,Ready!,99,,,,boostAp,17
